@@ -6,7 +6,8 @@
 package personaltwitterfeed;
 
 import java.util.Scanner;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /**
  *
  * @author CCannon
@@ -38,6 +39,7 @@ public class PersonalTwitterFeed {
             System.out.println(tweeterName + "'s Personal Twitter Feed:");
             for(int i = 0; i < numTweets; i++) {
                 System.out.println("- " + tweets[i]);
+                System.out.println(getCurrentTimeStamp());
             }
             
             System.out.println();
@@ -51,5 +53,12 @@ public class PersonalTwitterFeed {
         
         System.out.println("Your twitter feed is full");
     }
-    
-}
+    private static String getCurrentTimeStamp(){
+     
+    String pattern = "EEEEE dd MMMMM yyyy HH:mm:ss.SSSZ";
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+    String date = simpleDateFormat.format(new Date());
+    return date;
+    }
+    }   
